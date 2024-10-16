@@ -1,0 +1,226 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+} 
+
+a {
+    color: inherit; /*Links inherit color from parent */
+    text-decoration: none; /*remove underline */
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+h1,h2 {
+    margin-bottom: 10px;
+}
+
+/* Header Section styling */
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+} 
+
+.header-container {
+    display: flex; /*Flexbox to align items horizontally */
+    justify-content: space-between; /*Space between the name and the sections */
+    align-items: center; /*Vertically align the name and sections */
+    max-width: 1200px; /* Maximum width to center the content */
+    margin: 0 auto; /*Center the container*/
+    padding: 0 20px; 
+}
+
+.name {
+    flex: 1; /*Allow name to take available space */
+}
+
+.name h1 {
+    font-size: 1.5em;
+    color: #fff;
+    margin: 10;
+} 
+
+.sections {
+    display: flex; /*Flexbox for horizontal layout*/
+    align-items: center; /*Vertically center the items*/
+}
+
+.sections ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /*Flexbox to align the list items horizontally */
+    gap: 20px; /*Space between each section link */
+    margin: 0;
+} 
+
+.sections ul li a {
+    color:#fff;
+    text-decoration: none;
+    font-size: 1em;
+    margin-left: 15px;
+}
+
+.sections ul li a:hover{
+    text-decoration: underline;
+}
+
+/* Intro Sections styling */
+.intro-section {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.intro-container {
+    display: flex; /* Flexbox layout to place image and text side by side */
+    align-items: center; /* Align vertically */
+    justify-content: center; /* Center the items horizontally */
+    max-width: 1000px;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    gap: 30px; /*Add some space between the image and the text */
+}
+
+.intro-image img {
+    width: 250px; /* Fixed width for the image */
+    border-radius: 50%; /* Rounded image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+    margin-left: 20px; /* Add margin to the left to move it away from the left border */
+}
+
+.intro-text {
+    text-align: left; /* Align the text */
+    margin-right: 20px; /*Add margin to the right to move it from the right border */ 
+}
+
+.intro-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro-text h2 {
+    font-size: 1.8em;
+    color: #555;
+}
+
+/* Skills, Experience, Education, etc Sections */
+.section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between columns */
+    justify-items: center;
+    align-items: center;
+}
+
+.skill-box {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 25px; /* Oval shape */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.skill-box h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.skill-box p {
+    font-size: 0.9em;
+    color: #666;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+/* Hover Effect to Show Description */
+.skill-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.skill-box:hover p {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*.section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section p{
+    margin-bottom: 20px;
+} */
+
+/* Footer Section Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack name and sections vertically */
+    }
+
+    .sections ul {
+        justify-content: center; /* Center the sections for smaller screens */
+        margin-top: 15px; /* Add some space above the sections on small screens */
+    }
+
+    .intro-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-image img {
+        width: 200px; /* Smaller image for mobile */
+        margin-bottom: 20px;
+    }
+
+    .intro-text h1 {
+        font-size: 2em;
+    }
+
+    .intro-text h2 {
+        font-size: 1.5em;
+    }
+}

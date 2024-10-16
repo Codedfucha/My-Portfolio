@@ -1,0 +1,90 @@
+// Functionality for the responsive navbar
+const toggleMenu = () => {
+    const nav = document.querySelector('nav ul');
+    nav.classList.toggle('active');
+};
+
+//Add event listener to the menu button for mobile devices
+const menuButton = document.querySelector('.menu-button');
+if (menuButton) {
+    menuButton.addEventListener('click', toggleMenu);
+}
+
+//Smooth Scroll to sections when nav links are clicked
+document.querySelectorAll('nav ul li a').forEach(anchor =>{
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        window.scrollTo({
+            top: targetSection.offsetTop,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Contact form validation function
+const validateForm = () => {
+    const name= document.getElementById('name').value;
+    const email= document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    let valid = true;
+
+    if (name === '') {
+        alert('Please enter your name');
+        valid = false;
+    } else if (email === '' || !email.includes('@')) {
+        alert('Please enter a valid email address');
+        valid = false;
+    } else if (message === '') {
+        alert('Please enter a message');
+        valid = false;
+    } 
+
+    return valid;
+};
+
+// Attach form validation on form submit
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        if (!validateForm()) {
+            e.preventDefault(); //Prevent the form from submitting if validation fails
+        }
+    });
+}
+
+// Show "Back to Top" button when the user scrolls down
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+// Scroll back to the top when the "Back to Top" button is clicked
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// JavaScript for handling hover/toggle effect on skills
+document.querySelectorAll('.skill').forEach(skill => {
+    skill.addEventListener('mouseover', function() {
+        this.querySelector('.description').style.display = 'block';
+    });
+
+    skill.addEventListener('mouseout', function() {
+        this.querySelector('.description').style.display = 'none';
+    });
+});
